@@ -5,26 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BAM | Coffee & Vintage</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <script>
-        tailwind.config = {
-            theme: {
-                extend: { 
-                    colors: { 
-                        retro: { 
-                            100: '#F5EFE6', // Cream
-                            300: '#E8DFCA', // Darker cream
-                            500: '#D55A3B', // Retro Orange/Rust
-                            700: '#783D19', // Brown
-                            900: '#1A1A1A'  // Soft black
-                        } 
-                    },
-                    fontFamily: {
-                        'serif': ['"DM Serif Display"', 'serif'],
-                        'sans': ['"Syne"', 'sans-serif'],
-                    }
-                }
-            }
-        }
+        document.addEventListener('DOMContentLoaded', () => {
+            requestAnimationFrame(() => {
+                setTimeout(() => document.body.classList.add('loaded'), 50);
+            });
+        });
     </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700&display=swap');

@@ -5,15 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Location | BAM</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <script>
-        tailwind.config = {
-            theme: {
-                extend: { 
-                    colors: { retro: { 100: '#F5EFE6', 300: '#E8DFCA', 500: '#D55A3B', 700: '#783D19', 900: '#1A1A1A' } },
-                    fontFamily: { 'serif': ['"DM Serif Display"', 'serif'], 'sans': ['"Syne"', 'sans-serif'] }
-                }
-            }
-        }
+        document.addEventListener('DOMContentLoaded', () => {
+            requestAnimationFrame(() => {
+                setTimeout(() => document.body.classList.add('loaded'), 50);
+            });
+        });
     </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700&display=swap');
