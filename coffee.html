@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee | BAM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: { 
+                    colors: { retro: { 100: '#F5EFE6', 300: '#E8DFCA', 500: '#D55A3B', 700: '#783D19', 900: '#1A1A1A' } },
+                    fontFamily: { 'serif': ['"DM Serif Display"', 'serif'], 'sans': ['"Syne"', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700&display=swap');
+        body { background-color: #F5EFE6; color: #1A1A1A; }
+        .grain-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; z-index: 50; opacity: 0.15; background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png'); mix-blend-mode: overlay; }
+        body { opacity: 0; transition: opacity 0.5s ease-out; }
+        body.loaded { opacity: 1; }
+        body.exiting { opacity: 0; transition: opacity 0.4s ease-in; }
+    </style>
+</head>
+<body class="font-sans antialiased">
+    <div class="grain-overlay"></div>
+    <nav class="w-full py-6 px-8 flex justify-between items-center border-b-2 border-retro-900 bg-retro-900 text-retro-100 relative z-20">
+        <a href="/" class="text-4xl font-serif tracking-tight">BAM.</a>
+        <div class="hidden md:flex space-x-8 text-sm font-bold uppercase tracking-widest">
+            <a href="/coffee.html" class="text-retro-500 transition duration-300">Coffee</a>
+            <a href="/vintage.html" class="hover:text-retro-500 transition duration-300">Vintage Shop</a>
+            <a href="/location.html" class="hover:text-retro-500 transition duration-300">Location</a>
+        </div>
+        <button class="border-2 border-retro-100 px-6 py-2 text-sm font-bold uppercase hover:bg-retro-100 hover:text-retro-900 transition duration-300">Shop Online</button>
+    </nav>
+    <main class="py-24 px-8 md:px-16 max-w-4xl mx-auto text-center border-x-2 border-b-2 border-retro-900 bg-retro-300">
+        <h1 class="font-serif text-7xl mb-8 text-retro-900">The Brew.</h1>
+        <p class="font-medium text-retro-900 text-lg mb-16 max-w-xl mx-auto">We serve rotating single-origin coffees sourced from Europe's best independent roasters. Black, white, or filter—poured perfectly every time.</p>
+        <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Coffee Pour" class="w-full h-80 object-cover border-y-2 border-retro-900 filter sepia-[0.3] mb-16">
+        <a href="/" class="inline-block border-2 border-retro-900 px-8 py-3 font-bold uppercase tracking-widest hover:bg-retro-900 hover:text-retro-100 transition duration-300">Back Home</a>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            requestAnimationFrame(() => setTimeout(() => document.body.classList.add('loaded'), 50));
+        });
+    </script>
+</body>
+</html>
