@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAM | Coffee & Vintage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: { 
+                    colors: { 
+                        retro: { 
+                            100: '#F5EFE6', // Cream
+                            300: '#E8DFCA', // Darker cream
+                            500: '#D55A3B', // Retro Orange/Rust
+                            700: '#783D19', // Brown
+                            900: '#1A1A1A'  // Soft black
+                        } 
+                    },
+                    fontFamily: {
+                        'serif': ['"DM Serif Display"', 'serif'],
+                        'sans': ['"Syne"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700&display=swap');
+        
+        body { background-color: #F5EFE6; color: #1A1A1A; }
+        
+        .hero-bg {
+            background-image: linear-gradient(rgba(26, 26, 26, 0.4), rgba(26, 26, 26, 0.7)), url('/images/hero.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: scroll;
+        }
+
+        .grain-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.15; /* Subdued grain */
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png');
+            mix-blend-mode: overlay;
+        }
+
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            background-color: #D55A3B;
+            color: #F5EFE6;
+            padding: 10px 0;
+            border-top: 2px solid #1A1A1A;
+            border-bottom: 2px solid #1A1A1A;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-family: 'Syne', sans-serif;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Page transition */
+        body { opacity: 0; transition: opacity 0.5s ease-out; }
+        body.loaded { opacity: 1; }
+        body.exiting { opacity: 0; transition: opacity 0.4s ease-in; }
+    </style>
+</head>
+<body class="font-sans antialiased">
+    <div class="grain-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="w-full py-6 px-8 flex justify-between items-center border-b-2 border-retro-900 absolute top-0 z-20 mix-blend-difference text-retro-100">
+        <a href="/" class="text-4xl font-serif tracking-tight">BAM.</a>
+        <div class="hidden md:flex space-x-8 text-sm font-bold uppercase tracking-widest">
+            <a href="#" class="hover:text-retro-500 transition duration-300">Coffee</a>
+            <a href="#" class="hover:text-retro-500 transition duration-300">Vintage Shop</a>
+            <a href="#" class="hover:text-retro-500 transition duration-300">Location</a>
+        </div>
+        <button class="border-2 border-retro-100 px-6 py-2 text-sm font-bold uppercase hover:bg-retro-100 hover:text-retro-900 transition duration-300">Shop Online</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-bg h-[90vh] flex flex-col justify-center items-center text-center px-4 relative border-b-2 border-retro-900">
+        <div class="relative z-10">
+            <h1 class="text-7xl md:text-9xl text-retro-100 mb-6 font-serif italic">Good Taste.</h1>
+            <p class="text-retro-100 font-medium text-lg md:text-xl uppercase tracking-[0.2em] max-w-2xl mx-auto border-2 border-retro-100 py-3 px-6 bg-retro-900/40 backdrop-blur-sm">
+                Coffee Upstairs. Vintage Downstairs.
+            </p>
+        </div>
+    </header>
+
+    <!-- Marquee -->
+    <div class="marquee-container">
+        <div class="marquee-content">
+            SPECIALITY COFFEE ✦ CURATED VINTAGE ✦ LOCAL BAKED GOODS ✦ GLASGOW SOUTHSIDE ✦ SPECIALITY COFFEE ✦ CURATED VINTAGE ✦ LOCAL BAKED GOODS ✦ GLASGOW SOUTHSIDE ✦ SPECIALITY COFFEE ✦ CURATED VINTAGE ✦ LOCAL BAKED GOODS ✦ GLASGOW SOUTHSIDE ✦
+        </div>
+    </div>
+
+    <!-- Dual Vibe Section -->
+    <section class="grid grid-cols-1 md:grid-cols-2 divide-y-2 md:divide-y-0 md:divide-x-2 divide-retro-900 border-b-2 border-retro-900">
+        <div class="p-16 flex flex-col justify-center items-start group cursor-pointer hover:bg-retro-300 transition duration-500">
+            <h2 class="text-5xl font-serif mb-4 text-retro-900">The Brew.</h2>
+            <p class="text-retro-900 font-medium mb-8 leading-relaxed">Speciality coffee sourced from the best independent roasters. Paired with fresh pastries baked by local Southside legends.</p>
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Coffee" class="w-full h-64 object-cover border-2 border-retro-900 filter sepia-[0.3]">
+        </div>
+        <div class="p-16 flex flex-col justify-center items-start group cursor-pointer hover:bg-retro-300 transition duration-500">
+            <h2 class="text-5xl font-serif mb-4 text-retro-900">The Threads.</h2>
+            <p class="text-retro-900 font-medium mb-8 leading-relaxed">Curated vintage treasures, hand-picked and ready for their new home. From 70s denim to 90s streetwear.</p>
+            <img src="https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Vintage Clothes" class="w-full h-64 object-cover border-2 border-retro-900 filter sepia-[0.3]">
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-8 text-center bg-retro-900 text-retro-100 font-bold uppercase tracking-widest text-sm">
+        <p>Nithsdale Road, Glasgow • EST 2026</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            requestAnimationFrame(() => {
+                setTimeout(() => document.body.classList.add('loaded'), 50);
+            });
+        });
+    </script>
+</body>
+</html>
